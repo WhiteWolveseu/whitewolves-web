@@ -2,109 +2,109 @@
 <html lang="cs">
 <head>
 <meta charset="UTF-8">
-<title>WhiteWolves.eu | Rust Server</title>
+<title>WhiteWolves.eu</title>
+
 <style>
-body{
-background:#0f0f0f;
-color:white;
-font-family:Arial;
-margin:0;
-text-align:center;
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0d0d0d;
+    color: white;
 }
-header{
-background:#1a1a1a;
-padding:40px;
+
+/* HERO */
+.hero {
+    height: 100vh;
+    background: url("https://images.unsplash.com/photo-1542751371-adc38448a05e") center/cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
-h1{
-font-size:48px;
-margin:0;
+
+.hero h1 {
+    font-size: 60px;
+    color: #00ffcc;
 }
-section{
-padding:40px;
-max-width:900px;
-margin:auto;
+
+.hero p {
+    font-size: 20px;
+    margin: 10px 0;
 }
-.box{
-background:#1e1e1e;
-padding:20px;
-margin:15px;
-border-radius:10px;
+
+.btn {
+    padding: 15px 30px;
+    background: #00ffcc;
+    color: black;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
 }
-.button{
-display:inline-block;
-padding:15px 30px;
-background:#ff5500;
-color:white;
-text-decoration:none;
-border-radius:8px;
-font-weight:bold;
-margin-top:20px;
+
+/* SECTIONS */
+section {
+    padding: 50px;
+    text-align: center;
+}
+
+.box {
+    background: #1a1a1a;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    display: inline-block;
+    width: 250px;
+}
+
+/* FOOTER */
+footer {
+    background: #111;
+    padding: 20px;
 }
 </style>
+
 </head>
 
 <body>
 
-<header>
-<h1>🐺 WhiteWolves.eu</h1>
-<p>CZ/SK Rust server pro začátečníky</p>
-<a class="button" href="https://discord.gg/fns7QXwq">Připojit se na Discord</a>
-</header>
+<div class="hero">
+    <h1>WhiteWolves</h1>
+    <p>EU/CZ Rust server pro všechny hráče</p>
+    <a class="btn" href="#">PŘIPOJIT SE</a>
+</div>
 
 <section>
-<h2>Informace o serveru</h2>
+    <h2>⚙️ Server Info</h2>
 
-<div class="box">
-IP: 185.180.2.17:27744
-</div>
-
-<div class="box">
-Wipe: Biweekly
-</div>
-
-<div class="box">
-Raid limit: 1x denně
-</div>
-
-<div class="box">
-2x těžba • Upravené stacky • Aktivní admin
-</div>
-
+    <div class="box">Raid limit: 1x denně</div>
+    <div class="box">2x stack</div>
+    <div class="box">Bez cheatů</div>
+    <div class="box">Aktivní admin</div>
 </section>
 
 <section>
-<h2>Proč hrát u nás</h2>
+    <h2>🎮 Proč hrát u nás</h2>
 
-<div class="box">
-✔ Server vhodný pro nové hráče
-</div>
-
-<div class="box">
-✔ Aktivní admin tým
-</div>
-
-<div class="box">
-✔ Férová hra bez cheatů
-</div>
-
+    <div class="box">Server pro nováčky</div>
+    <div class="box">Férový gameplay</div>
+    <div class="box">Komunita</div>
 </section>
 
 <section>
-<h2>Admin tým</h2>
+    <h2>👑 Admin tým</h2>
 
-<div class="box">
-Vrah z Kampali – Zakladatel
-</div>
-
-<div class="box">
-Makrela – Admin
-</div>
-
-<div class="box">
-Duracel – Admin
-</div>
-
+    <div class="box">Vrah z Kampali - Zakladatel</div>
 </section>
+
+<section>
+    <h2>💬 Komunita</h2>
+
+    <a class="btn" href="#">DISCORD</a>
+</section>
+
+<footer>
+    © 2026 WhiteWolves.eu
+</footer>
 
 </body>
 </html>
