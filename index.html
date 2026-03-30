@@ -410,6 +410,12 @@
       gap:18px;
     }
 
+    .grid-2{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:18px;
+    }
+
     .card{
       background:var(--panel);
       border:1px solid var(--panel-border);
@@ -486,6 +492,39 @@
       font-weight:700;
     }
 
+    .donate-card{
+      position:relative;
+      overflow:hidden;
+    }
+
+    .donate-card::before{
+      content:"";
+      position:absolute;
+      inset:-20% auto auto 70%;
+      width:180px;
+      height:180px;
+      background:radial-gradient(circle, rgba(255,122,24,.16), transparent 60%);
+      pointer-events:none;
+    }
+
+    .price{
+      font-size:30px;
+      font-weight:800;
+      color:#fff;
+      margin:8px 0 12px;
+    }
+
+    .mini-tag{
+      display:inline-block;
+      padding:6px 10px;
+      border-radius:999px;
+      background:rgba(255,255,255,.07);
+      border:1px solid rgba(255,255,255,.1);
+      color:#d7dde5;
+      font-size:12px;
+      margin-bottom:12px;
+    }
+
     .cta-panel{
       text-align:center;
       padding:34px;
@@ -509,7 +548,8 @@
       .hero-wrap,
       .rules,
       .grid-4,
-      .grid-3{
+      .grid-3,
+      .grid-2{
         grid-template-columns:1fr;
       }
 
@@ -557,6 +597,7 @@
         <a href="#server">Server</a>
         <a href="#vyhody">Výhody</a>
         <a href="#tym">Tým</a>
+        <a href="#vip">VIP</a>
         <a href="#discord">Discord</a>
       </div>
     </div>
@@ -621,6 +662,9 @@
             <div class="count-item"><strong id="hours">00</strong><span>Hodiny</span></div>
             <div class="count-item"><strong id="minutes">00</strong><span>Minuty</span></div>
             <div class="count-item"><strong id="seconds">00</strong><span>Sekundy</span></div>
+          </div>
+          <div style="margin-top:12px;font-size:12px;color:var(--muted);">
+            Wipe každých 14 dní ve 20:00
           </div>
         </div>
       </div>
@@ -712,6 +756,49 @@
     </div>
   </section>
 
+  <section class="section" id="vip">
+    <h2 class="section-title">VIP a podpora serveru</h2>
+    <p class="section-sub">
+      Chceš server podpořit a získat výhody navíc? Tady je rychlý přehled balíčků. Přesné informace a aktivace běží přes Discord.
+    </p>
+
+    <div class="grid-2">
+      <div class="card donate-card">
+        <div class="mini-tag">Nejoblíbenější</div>
+        <h3>VIP</h3>
+        <div class="price">150 Kč</div>
+        <p>
+          Základní podpora serveru a výhody pro hráče, kteří chtějí posunout svůj komfort o kus dál.
+        </p>
+        <div class="checklist">
+          <div class="check">✔ Výhody dle aktuální nabídky na Discordu</div>
+          <div class="check">✔ Přehled změn, novinek a bonusů</div>
+          <div class="check">✔ Podpora chodu WhiteWolves.eu</div>
+        </div>
+        <div class="cta-row" style="margin-top:18px;margin-bottom:0;">
+          <a class="btn btn-primary" href="https://discord.gg/jJxbZQG5sC" target="_blank">Koupit přes Discord</a>
+        </div>
+      </div>
+
+      <div class="card donate-card">
+        <div class="mini-tag">Pro aktivní hráče</div>
+        <h3>ELITE</h3>
+        <div class="price">Více info</div>
+        <p>
+          Rozšířený balíček pro hráče, kteří chtějí server nejen hrát, ale i dlouhodobě podpořit.
+        </p>
+        <div class="checklist">
+          <div class="check">✔ Rozšířené výhody dle nabídky</div>
+          <div class="check">✔ Vyšší komfort a bonusy</div>
+          <div class="check">✔ Aktivace přes Discord</div>
+        </div>
+        <div class="cta-row" style="margin-top:18px;margin-bottom:0;">
+          <a class="btn btn-secondary" href="https://discord.gg/jJxbZQG5sC" target="_blank">Zobrazit nabídku</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="section" id="discord">
     <div class="cta-panel">
       <h2 class="section-title" style="margin-top:0;">Přidej se do smečky</h2>
@@ -731,7 +818,20 @@
 
   <script>
     const BM_SERVER_ID = "32370252";
-    const NEXT_WIPE = "2026-04-10T18:00:00";
+
+    const FIRST_WIPE = new Date("2026-04-02T20:00:00").getTime();
+    const WIPE_INTERVAL = 14 * 24 * 60 * 60 * 1000;
+
+    function getNextWipe() {
+      const now = Date.now();
+      let next = FIRST_WIPE;
+
+      while (next <= now) {
+        next += WIPE_INTERVAL;
+      }
+
+      return next;
+    }
 
     async function loadPlayerCount() {
       const el = document.getElementById("playerCount");
@@ -741,6 +841,7 @@
         const data = await res.json();
         const players = data?.data?.attributes?.players;
         const maxPlayers = data?.data?.attributes?.maxPlayers;
+
         if (typeof players === "number") {
           el.textContent = maxPlayers ? `${players} / ${maxPlayers}` : `${players}`;
         } else {
@@ -758,11 +859,11 @@
       const s = document.getElementById("seconds");
 
       function update() {
-        const now = new Date().getTime();
-        const target = new Date(NEXT_WIPE).getTime();
+        const now = Date.now();
+        const target = getNextWipe();
         const diff = target - now;
 
-        if (isNaN(target) || diff <= 0) {
+        if (diff <= 0) {
           d.textContent = "00";
           h.textContent = "00";
           m.textContent = "00";
