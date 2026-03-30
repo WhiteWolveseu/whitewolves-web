@@ -21,29 +21,73 @@
     }
 
     *{box-sizing:border-box}
+
     html{scroll-behavior:smooth}
+
     body{
       margin:0;
       font-family:Arial, Helvetica, sans-serif;
       color:var(--text);
       background:
-        radial-gradient(circle at top, rgba(212,175,55,.12), transparent 30%),
+        radial-gradient(circle at top, rgba(212,175,55,.10), transparent 30%),
         linear-gradient(180deg, #0a0c10 0%, #0f141b 45%, #0a0c10 100%);
+      background-blend-mode: overlay;
       overflow-x:hidden;
+      position:relative;
     }
 
-    a{color:inherit;text-decoration:none}
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
 
     .bg-glow{
       position:fixed;
       inset:0;
       pointer-events:none;
-      z-index:-1;
+      z-index:-3;
       background:
         radial-gradient(circle at 20% 20%, rgba(255,122,24,.08), transparent 25%),
         radial-gradient(circle at 80% 30%, rgba(212,175,55,.08), transparent 25%),
         radial-gradient(circle at 50% 80%, rgba(255,255,255,.03), transparent 30%);
       filter: blur(20px);
+    }
+
+    .smoke{
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      z-index:-2;
+      opacity:.18;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(255,255,255,.08), transparent 18%),
+        radial-gradient(circle at 80% 25%, rgba(255,255,255,.06), transparent 20%),
+        radial-gradient(circle at 35% 75%, rgba(255,255,255,.05), transparent 16%),
+        radial-gradient(circle at 70% 70%, rgba(255,255,255,.04), transparent 18%);
+      filter: blur(35px);
+      animation: smokeMove 18s ease-in-out infinite alternate;
+    }
+
+    .grain{
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      z-index:-1;
+      opacity:.08;
+      background-image:
+        linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+      background-size: 4px 4px, 5px 5px;
+      mix-blend-mode: soft-light;
+    }
+
+    @keyframes smokeMove{
+      0%{
+        transform:translate(0,0) scale(1);
+      }
+      100%{
+        transform:translate(20px,-15px) scale(1.08);
+      }
     }
 
     .topbar{
@@ -93,7 +137,9 @@
       font-size:14px;
     }
 
-    .nav-links a:hover{color:#fff}
+    .nav-links a:hover{
+      color:#fff;
+    }
 
     .hero{
       min-height:100vh;
@@ -108,10 +154,11 @@
       position:absolute;
       inset:0;
       background:
-        linear-gradient(rgba(10,12,16,.55), rgba(10,12,16,.88)),
-        url("https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
+        linear-gradient(rgba(0,0,0,.62), rgba(0,0,0,.88)),
+        url("https://images.alphacoders.com/115/1151247.jpg") center/cover no-repeat;
       transform:scale(1.03);
       z-index:-2;
+      filter: grayscale(45%) brightness(.65);
     }
 
     .hero::after{
@@ -119,7 +166,7 @@
       position:absolute;
       inset:0;
       background:
-        linear-gradient(90deg, rgba(10,12,16,.92) 0%, rgba(10,12,16,.55) 45%, rgba(10,12,16,.75) 100%);
+        linear-gradient(90deg, rgba(10,12,16,.92) 0%, rgba(10,12,16,.58) 45%, rgba(10,12,16,.78) 100%);
       z-index:-1;
     }
 
@@ -192,7 +239,9 @@
       box-shadow:0 12px 30px rgba(212,175,55,.25);
     }
 
-    .btn-primary:hover{transform:translateY(-2px)}
+    .btn-primary:hover{
+      transform:translateY(-2px);
+    }
 
     .btn-secondary{
       background:rgba(255,255,255,.06);
@@ -458,6 +507,8 @@
 </head>
 <body>
   <div class="bg-glow"></div>
+  <div class="smoke"></div>
+  <div class="grain"></div>
 
   <div class="topbar">
     <div class="nav">
@@ -487,7 +538,7 @@
 
         <div class="cta-row">
           <a class="btn btn-primary" href="steam://connect/185.180.2.17:27744">Připojit do Rustu</a>
-          <a class="btn btn-secondary" href="https://discord.gg/fns7QXwq" target="_blank">Vstoupit na Discord</a>
+          <a class="btn btn-secondary" href="https://discord.gg/jJxbZQG5sC" target="_blank">Vstoupit na Discord</a>
         </div>
 
         <div class="stats">
@@ -580,7 +631,7 @@
       <div class="big-panel">
         <h2 class="section-title" style="margin-top:0;">Rychlé info</h2>
         <div class="checklist">
-          <div class="check"><strong>Discord:</strong> discord.gg/fns7QXwq</div>
+          <div class="check"><strong>Discord:</strong> discord.gg/jJxbZQG5sC</div>
           <div class="check"><strong>Web:</strong> whitewolves.eu</div>
           <div class="check"><strong>Příkazy:</strong> /help, /players, /stats, /remove</div>
           <div class="check"><strong>VIP:</strong> informace a výhody na Discordu</div>
@@ -621,7 +672,7 @@
         Sleduj wipe informace, eventy, novinky a komunikuj s komunitou. WhiteWolves není jen server. Je to základna pro hráče, kteří chtějí hrát naplno.
       </p>
       <div class="cta-row" style="justify-content:center;">
-        <a class="btn btn-primary" href="https://discord.gg/fns7QXwq" target="_blank">Otevřít Discord</a>
+        <a class="btn btn-primary" href="https://discord.gg/jJxbZQG5sC" target="_blank">Otevřít Discord</a>
         <a class="btn btn-secondary" href="steam://connect/185.180.2.17:27744">Připojit na server</a>
       </div>
     </div>
