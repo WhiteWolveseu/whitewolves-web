@@ -16,7 +16,6 @@
       --accent:#d4af37;
       --accent-2:#ff7a18;
       --ok:#52d273;
-      --warning:#ffb347;
       --shadow:0 20px 50px rgba(0,0,0,.45);
     }
 
@@ -731,29 +730,11 @@
   </footer>
 
   <script>
-    /*
-      1) SEM DOPLŇ BATTLEMETRICS SERVER ID
-         Příklad:
-         const BM_SERVER_ID = "12345678";
-    */
-    const BM_SERVER_ID = "DOPLN_TVE_BATTLEMETRICS_ID";
-
-    /*
-      2) SEM NASTAV DATUM A ČAS DALŠÍHO WIPE
-         Formát:
-         RRRR-MM-DDTHH:MM:SS
-         Příklad:
-         const NEXT_WIPE = "2026-04-10T18:00:00";
-    */
+    const BM_SERVER_ID = "32370252";
     const NEXT_WIPE = "2026-04-10T18:00:00";
 
     async function loadPlayerCount() {
       const el = document.getElementById("playerCount");
-
-      if (!BM_SERVER_ID || BM_SERVER_ID === "DOPLN_TVE_BATTLEMETRICS_ID") {
-        el.textContent = "Doplň BM ID";
-        return;
-      }
 
       try {
         const res = await fetch(`https://api.battlemetrics.com/servers/${BM_SERVER_ID}`);
@@ -781,15 +762,7 @@
         const target = new Date(NEXT_WIPE).getTime();
         const diff = target - now;
 
-        if (isNaN(target)) {
-          d.textContent = "00";
-          h.textContent = "00";
-          m.textContent = "00";
-          s.textContent = "00";
-          return;
-        }
-
-        if (diff <= 0) {
+        if (isNaN(target) || diff <= 0) {
           d.textContent = "00";
           h.textContent = "00";
           m.textContent = "00";
