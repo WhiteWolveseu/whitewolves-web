@@ -16,6 +16,7 @@
       --accent:#d4af37;
       --accent-2:#ff7a18;
       --ok:#52d273;
+      --warning:#ffb347;
       --shadow:0 20px 50px rgba(0,0,0,.45);
     }
 
@@ -111,16 +112,16 @@
       letter-spacing:.5px;
     }
 
-    .wolf{
-      width:38px;
-      height:38px;
+    .brand-logo{
+      width:42px;
+      height:42px;
       border-radius:12px;
-      display:grid;
-      place-items:center;
-      background:linear-gradient(135deg, rgba(212,175,55,.25), rgba(255,122,24,.25));
+      display:block;
+      object-fit:cover;
+      background:#111;
       border:1px solid rgba(255,255,255,.12);
       box-shadow:var(--shadow);
-      font-size:20px;
+      padding:4px;
     }
 
     .nav-links{
@@ -338,6 +339,48 @@
       text-align:right;
     }
 
+    .wipe-box{
+      margin-top:16px;
+      padding-top:16px;
+      border-top:1px solid rgba(255,255,255,.08);
+    }
+
+    .wipe-label{
+      font-size:12px;
+      color:var(--muted);
+      text-transform:uppercase;
+      letter-spacing:1px;
+      margin-bottom:10px;
+    }
+
+    .countdown{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:10px;
+    }
+
+    .count-item{
+      border-radius:14px;
+      padding:12px 8px;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.08);
+      text-align:center;
+    }
+
+    .count-item strong{
+      display:block;
+      font-size:22px;
+      color:#fff;
+      margin-bottom:4px;
+    }
+
+    .count-item span{
+      font-size:11px;
+      color:var(--muted);
+      text-transform:uppercase;
+      letter-spacing:1px;
+    }
+
     .section{
       max-width:1200px;
       margin:0 auto;
@@ -496,6 +539,7 @@
       .section{padding:64px 18px}
       .hero-wrap{padding:50px 18px}
       .btn{width:100%}
+      .countdown{grid-template-columns:repeat(2,1fr)}
     }
   </style>
 </head>
@@ -507,7 +551,7 @@
   <div class="topbar">
     <div class="nav">
       <div class="brand">
-        <div class="wolf">🐺</div>
+        <img src="logo.webp" alt="WhiteWolves logo" class="brand-logo">
         <div>WhiteWolves.eu</div>
       </div>
       <div class="nav-links">
@@ -522,7 +566,7 @@
   <section class="hero">
     <div class="hero-wrap">
       <div>
-        <div class="eyebrow">EU/CZ x2 ISLAND SURVIVAL | CUSTOM MAP | EVENTS | SOLO-DUO-TRIO</div>
+        <div class="eyebrow">EU/CZ Rust server • Beginners NEW ERA</div>
         <h1>Lov začíná ve <span class="accent">WhiteWolves</span></h1>
         <p>
           Rust server pro hráče, kteří chtějí férovou hru, aktivní adminy,
@@ -568,7 +612,17 @@
           <div class="server-row"><span>IP adresa</span><span>185.180.2.17:27744</span></div>
           <div class="server-row"><span>Typ serveru</span><span>Vanilla / Upravený</span></div>
           <div class="server-row"><span>Pro koho</span><span>Začátečníci i pokročilí</span></div>
-          <div class="server-row"><span>Hlavní styl</span><span>Férová hra, menší agrese</span></div>
+          <div class="server-row"><span>Hráči online</span><span id="playerCount">Načítám...</span></div>
+        </div>
+
+        <div class="wipe-box">
+          <div class="wipe-label">Odpočet do wipe</div>
+          <div class="countdown">
+            <div class="count-item"><strong id="days">00</strong><span>Dny</span></div>
+            <div class="count-item"><strong id="hours">00</strong><span>Hodiny</span></div>
+            <div class="count-item"><strong id="minutes">00</strong><span>Minuty</span></div>
+            <div class="count-item"><strong id="seconds">00</strong><span>Sekundy</span></div>
+          </div>
         </div>
       </div>
     </div>
@@ -675,5 +729,91 @@
   <footer class="footer">
     © 2026 WhiteWolves.eu • Rust komunita CZ/EU • Férová hra, aktivní admini, méně toxicity
   </footer>
+
+  <script>
+    /*
+      1) SEM DOPLŇ BATTLEMETRICS SERVER ID
+         Příklad:
+         const BM_SERVER_ID = "12345678";
+    */
+    const BM_SERVER_ID = "DOPLN_TVE_BATTLEMETRICS_ID";
+
+    /*
+      2) SEM NASTAV DATUM A ČAS DALŠÍHO WIPE
+         Formát:
+         RRRR-MM-DDTHH:MM:SS
+         Příklad:
+         const NEXT_WIPE = "2026-04-10T18:00:00";
+    */
+    const NEXT_WIPE = "2026-04-10T18:00:00";
+
+    async function loadPlayerCount() {
+      const el = document.getElementById("playerCount");
+
+      if (!BM_SERVER_ID || BM_SERVER_ID === "DOPLN_TVE_BATTLEMETRICS_ID") {
+        el.textContent = "Doplň BM ID";
+        return;
+      }
+
+      try {
+        const res = await fetch(`https://api.battlemetrics.com/servers/${BM_SERVER_ID}`);
+        const data = await res.json();
+        const players = data?.data?.attributes?.players;
+        const maxPlayers = data?.data?.attributes?.maxPlayers;
+        if (typeof players === "number") {
+          el.textContent = maxPlayers ? `${players} / ${maxPlayers}` : `${players}`;
+        } else {
+          el.textContent = "N/A";
+        }
+      } catch (e) {
+        el.textContent = "N/A";
+      }
+    }
+
+    function startCountdown() {
+      const d = document.getElementById("days");
+      const h = document.getElementById("hours");
+      const m = document.getElementById("minutes");
+      const s = document.getElementById("seconds");
+
+      function update() {
+        const now = new Date().getTime();
+        const target = new Date(NEXT_WIPE).getTime();
+        const diff = target - now;
+
+        if (isNaN(target)) {
+          d.textContent = "00";
+          h.textContent = "00";
+          m.textContent = "00";
+          s.textContent = "00";
+          return;
+        }
+
+        if (diff <= 0) {
+          d.textContent = "00";
+          h.textContent = "00";
+          m.textContent = "00";
+          s.textContent = "00";
+          return;
+        }
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((diff / (1000 * 60)) % 60);
+        const seconds = Math.floor((diff / 1000) % 60);
+
+        d.textContent = String(days).padStart(2, "0");
+        h.textContent = String(hours).padStart(2, "0");
+        m.textContent = String(minutes).padStart(2, "0");
+        s.textContent = String(seconds).padStart(2, "0");
+      }
+
+      update();
+      setInterval(update, 1000);
+    }
+
+    loadPlayerCount();
+    startCountdown();
+  </script>
 </body>
 </html>
