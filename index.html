@@ -6,9 +6,11 @@
 
 <title>WhiteWolves Restart | Semi-Vanilla Rust Server</title>
 
-<meta name="description" content="WhiteWolves Restart - Semi-Vanilla / Beginner Friendly Rust server. Více survival atmosféry, méně pay-to-win, aktivní komunita a férový gameplay.">
+<meta name="description"
+content="WhiteWolves Restart - Semi-Vanilla / Beginner Friendly Rust server.">
 
 <style>
+
 :root{
   --bg:#07090d;
   --panel:#10151c;
@@ -18,7 +20,6 @@
   --muted:#9ea7b3;
   --red:#d62b2b;
   --red2:#ff4d4d;
-  --gold:#d8b15c;
 }
 
 *{
@@ -59,6 +60,32 @@ a{
   display:flex;
   justify-content:space-between;
   align-items:center;
+}
+
+.nav-left{
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+
+.lang-switch{
+  display:flex;
+  gap:8px;
+}
+
+.lang-switch button{
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.08);
+  color:white;
+  border-radius:10px;
+  padding:8px 12px;
+  cursor:pointer;
+  transition:.2s;
+  font-size:16px;
+}
+
+.lang-switch button:hover{
+  background:rgba(255,255,255,.12);
 }
 
 .logo-wrap{
@@ -219,7 +246,6 @@ h1 span{
 
 .row span:last-child{
   font-weight:800;
-  text-align:right;
 }
 
 .section{
@@ -255,43 +281,11 @@ h1 span{
 
 .feature h3{
   margin-top:0;
-  margin-bottom:14px;
 }
 
 .feature p{
-  margin:0;
-  line-height:1.7;
   color:var(--muted);
-}
-
-.table{
-  overflow-x:auto;
-}
-
-table{
-  width:100%;
-  border-collapse:collapse;
-  background:rgba(10,10,10,.84);
-  border:1px solid var(--border);
-  border-radius:20px;
-  overflow:hidden;
-}
-
-th{
-  background:rgba(255,255,255,.05);
-  padding:18px;
-  text-align:left;
-  color:#fff;
-}
-
-td{
-  padding:16px 18px;
-  border-top:1px solid rgba(255,255,255,.05);
-  color:#d9d9d9;
-}
-
-tr:hover{
-  background:rgba(255,255,255,.03);
+  line-height:1.7;
 }
 
 .gallery{
@@ -307,19 +301,10 @@ tr:hover{
   border-radius:20px;
   border:1px solid rgba(255,255,255,.08);
   transition:.25s;
-  background:#111;
 }
 
 .gallery img:hover{
   transform:scale(1.02);
-  border-color:rgba(255,255,255,.18);
-}
-
-.footer{
-  text-align:center;
-  padding:50px 24px;
-  border-top:1px solid var(--border);
-  color:#888;
 }
 
 .cta{
@@ -328,6 +313,13 @@ tr:hover{
   border-radius:24px;
   padding:40px;
   text-align:center;
+}
+
+.footer{
+  text-align:center;
+  padding:50px 24px;
+  border-top:1px solid var(--border);
+  color:#888;
 }
 
 @media(max-width:980px){
@@ -346,50 +338,43 @@ tr:hover{
 
 }
 
-@media(max-width:640px){
-
-h1{
-  font-size:52px;
-}
-
-.hero p{
-  font-size:17px;
-}
-
-.buttons{
-  flex-direction:column;
-}
-
-.btn{
-  width:100%;
-  text-align:center;
-}
-
-}
 </style>
 </head>
 
 <body>
 
 <div class="topbar">
-  <div class="nav">
 
-    <div class="logo-wrap">
-      <img src="logo.webp" class="logo">
-      <div class="brand">
-        White<span>Wolves</span> Restart
-      </div>
-    </div>
+<div class="nav">
 
-    <div class="links">
-      <a href="#restart">Restart</a>
-      <a href="#changes">Změny</a>
-      <a href="#gallery">Galerie</a>
-      <a href="#support">Podpora</a>
-      <a href="https://discord.gg/jJxbZQG5sC" target="_blank">Discord</a>
-    </div>
+<div class="nav-left">
 
-  </div>
+<div class="lang-switch">
+<button onclick="setLang('cz')">🇨🇿</button>
+<button onclick="setLang('en')">🇬🇧</button>
+</div>
+
+<div class="logo-wrap">
+<img src="logo.webp" class="logo">
+
+<div class="brand">
+White<span>Wolves</span> Restart
+</div>
+
+</div>
+
+</div>
+
+<div class="links">
+<a href="#restart">Restart</a>
+<a href="#changes">Změny</a>
+<a href="#gallery">Galerie</a>
+<a href="#support">Podpora</a>
+<a href="https://discord.gg/jJxbZQG5sC" target="_blank">Discord</a>
+</div>
+
+</div>
+
 </div>
 
 <section class="hero" id="restart">
@@ -398,8 +383,12 @@ h1{
 
 <div>
 
-<div class="tag">
+<div class="tag"
+data-cz="⚔️ No Pay2Win • Semi-Vanilla • Survival Focused"
+data-en="⚔️ No Pay2Win • Semi-Vanilla • Survival Focused">
+
 ⚔️ No Pay2Win • Semi-Vanilla • Survival Focused
+
 </div>
 
 <h1>
@@ -407,24 +396,33 @@ WhiteWolves
 <span>Restart</span>
 </h1>
 
-<p>
+<p
+data-cz="WhiteWolves vstupuje do nové éry. Více survival atmosféry, méně pay-to-win prvků, pomalejší progres a více PvP kolem monumentů."
+data-en="WhiteWolves enters a new era. More survival atmosphere, less pay-to-win features, slower progression and more monument PvP.">
+
 WhiteWolves vstupuje do nové éry.
 Více survival atmosféry, méně pay-to-win prvků,
-pomalejší progres, více PvP kolem monumentů
-a dlouhodobější hratelnost pro nové i zkušené hráče.
+pomalejší progres a více PvP kolem monumentů.
+
 </p>
 
 <div class="buttons">
+
 <a class="btn btn-primary"
 href="steam://connect/185.180.2.17:27744">
+
 🎮 Připojit na server
+
 </a>
 
 <a class="btn btn-secondary"
 href="https://discord.gg/jJxbZQG5sC"
 target="_blank">
+
 🐺 Join the Pack
+
 </a>
+
 </div>
 
 </div>
@@ -434,6 +432,7 @@ target="_blank">
 <div class="status">
 
 <div>
+
 <div style="font-size:13px;color:#aaa;text-transform:uppercase;">
 Status serveru
 </div>
@@ -441,6 +440,7 @@ Status serveru
 <div style="font-size:32px;font-weight:900;margin-top:6px;">
 WhiteWolves.eu
 </div>
+
 </div>
 
 <div class="online">
@@ -451,7 +451,7 @@ ONLINE
 </div>
 
 <div class="row">
-<span>IP adresa</span>
+<span>IP</span>
 <span>185.180.2.17:27744</span>
 </div>
 
@@ -466,28 +466,28 @@ ONLINE
 </div>
 
 <div class="row">
-<span>Mapa</span>
+<span>Map</span>
 <span>Custom</span>
 </div>
 
 <div class="row">
-<span>Team limit</span>
+<span>Team</span>
 <span>Solo / Duo / Trio</span>
 </div>
 
 <div class="row">
 <span>Wipe</span>
-<span>Každých 10 dní</span>
+<span>10 Days</span>
 </div>
 
 <div class="row">
-<span>Hráči online</span>
-<span id="players">Načítám...</span>
+<span>Players</span>
+<span id="players">Loading...</span>
 </div>
 
 <div class="row">
 <span>Status</span>
-<span id="status">Kontroluji...</span>
+<span id="status">Checking...</span>
 </div>
 
 </div>
@@ -498,127 +498,37 @@ ONLINE
 
 <section class="section" id="changes">
 
-<h2 class="section-title">
+<h2 class="section-title"
+data-cz="WhiteWolves Restart změny"
+data-en="WhiteWolves Restart Changes">
+
 WhiteWolves Restart změny
+
 </h2>
 
-<p class="section-sub">
-WhiteWolves vstupuje do nové éry Semi-Vanilla survival gameplaye.
-Cílem je vytvořit dlouhodobě hratelný Rust server,
-kde má loot hodnotu, PvP dává smysl a wipe nekončí po prvních hodinách.
-</p>
+<p class="section-sub"
+data-cz="Semi-Vanilla survival gameplay zaměřený na dlouhodobou hratelnost."
+data-en="Semi-Vanilla survival gameplay focused on long-term progression.">
 
-<div class="table">
+Semi-Vanilla survival gameplay zaměřený na dlouhodobou hratelnost.
 
-<table>
-
-<tr>
-<th>Oblast</th>
-<th>Změna</th>
-</tr>
-
-<tr>
-<td>VIP / Donate</td>
-<td>Bez gameplay výhod • pouze dobrovolná podpora</td>
-</tr>
-
-<tr>
-<td>Kity</td>
-<td>Omezení OP kitů • žádné Pay2Win combat výhody</td>
-</tr>
-
-<tr>
-<td>Gather</td>
-<td>2x pouze základní resource • wood / stone / metal</td>
-</tr>
-
-<tr>
-<td>Sulfur</td>
-<td>Vanilla sulfur pro férovější raiding</td>
-</tr>
-
-<tr>
-<td>Scrap</td>
-<td>Vanilla scrap rate</td>
-</tr>
-
-<tr>
-<td>Raid systém</td>
-<td>Vyváženější raiding a větší důraz na survival progression</td>
-</tr>
-
-<tr>
-<td>Eventy</td>
-<td>Airfield Event zůstává jako hlavní PvP event</td>
-</tr>
-
-<tr>
-<td>Zrušené eventy</td>
-<td>Jet • Balloon • Raid Bases • Meteor • Armored Train • Mining Event</td>
-</tr>
-
-<tr>
-<td>Wipe</td>
-<td>Každých 10 dní</td>
-</tr>
-
-<tr>
-<td>Gameplay</td>
-<td>Více survival atmosféry a pomalejší progres</td>
-</tr>
-
-<tr>
-<td>PvP</td>
-<td>Více PvP kolem monumentů</td>
-</tr>
-
-<tr>
-<td>Komunita</td>
-<td>CZ/SK + zahraniční hráči</td>
-</tr>
-
-</table>
-
-</div>
-
-</section>
-
-<section class="section">
-
-<h2 class="section-title">
-Proč WhiteWolves?
-</h2>
-
-<p class="section-sub">
-WhiteWolves není další přepálený modded loot server.
-Chceme vytvořit Rust prostředí, kde se vyplatí hrát celý wipe,
-kde má každý fight váhu a kde komunita znamená víc než OP pluginy.
 </p>
 
 <div class="grid">
 
 <div class="feature">
-<h3>⚔️ Více survivalu</h3>
-<p>
-Méně instant progressu a více důvodu zůstávat aktivní celý wipe.
-Loot má mít hodnotu, ne padat hráčům do inventáře jako déšť plechovek.
-</p>
+<h3>⚔️ Survival</h3>
+<p>Více survival atmosféry a pomalejší progres.</p>
 </div>
 
 <div class="feature">
-<h3>🔥 PvP kolem monumentů</h3>
-<p>
-Scrap a důležité resource zůstávají vanilla pro větší pohyb hráčů po mapě
-a smysluplnější souboje.
-</p>
+<h3>🔥 PvP</h3>
+<p>Více monument PvP a férovější gameplay.</p>
 </div>
 
 <div class="feature">
-<h3>🤝 Beginner Friendly</h3>
-<p>
-Server zaměřený na férovou hru, aktivní dohled admin týmu
-a dlouhodobou komunitu.
-</p>
+<h3>🤝 Community</h3>
+<p>Aktivní admin tým a dlouhodobá komunita.</p>
 </div>
 
 </div>
@@ -628,21 +538,16 @@ a dlouhodobou komunitu.
 <section class="section" id="gallery">
 
 <h2 class="section-title">
-📸 WhiteWolves Gallery
+📸 Gallery
 </h2>
-
-<p class="section-sub">
-Atmosféra serveru, monument PvP, survival gameplay a custom mapa.
-Žádný instant loot simulator. Jen Rust.
-</p>
 
 <div class="gallery">
 
-<img src="screenshot1.jpg" alt="WhiteWolves Screenshot 1">
-<img src="screenshot2.jpg" alt="WhiteWolves Screenshot 2">
-<img src="screenshot3.jpg" alt="WhiteWolves Screenshot 3">
-<img src="screenshot4.jpg" alt="WhiteWolves Screenshot 4">
-<img src="screenshot5.jpg" alt="WhiteWolves Screenshot 5">
+<img src="screenshot1.jpg">
+<img src="screenshot2.jpg">
+<img src="screenshot3.jpg">
+<img src="screenshot4.jpg">
+<img src="screenshot5.jpg">
 
 </div>
 
@@ -658,9 +563,9 @@ Atmosféra serveru, monument PvP, survival gameplay a custom mapa.
 
 <p class="section-sub"
 style="margin:0 auto 30px;">
-Podpora serveru je dobrovolná a slouží na provoz,
-hosting, vývoj a další zlepšování projektu.
-Nezajišťuje žádné Pay2Win výhody.
+
+Support helps us keep the server online and improve the project.
+
 </p>
 
 <div class="buttons"
@@ -669,13 +574,17 @@ style="justify-content:center;">
 <a class="btn btn-primary"
 href="https://discord.gg/jJxbZQG5sC"
 target="_blank">
-💰 Podpořit server
+
+💰 Support Server
+
 </a>
 
 <a class="btn btn-secondary"
 href="https://discord.gg/jJxbZQG5sC"
 target="_blank">
-💬 Otevřít Discord
+
+💬 Discord
+
 </a>
 
 </div>
@@ -686,14 +595,15 @@ target="_blank">
 
 <footer class="footer">
 
-© 2026 WhiteWolves Restart • Semi-Vanilla Rust Community
+© 2026 WhiteWolves Restart
 
 </footer>
 
 <script>
+
 const SERVER_ID = "32370252";
 
-async function loadServer() {
+async function loadServer(){
 
 const players = document.getElementById("players");
 const status = document.getElementById("status");
@@ -720,14 +630,36 @@ online === "online"
 }catch(e){
 
 players.textContent = "N/A";
-status.textContent = "Low pop survival experience";
+status.textContent = "Offline";
 
 }
 
+}
+
+function setLang(lang){
+
+document.querySelectorAll("[data-cz]").forEach(el => {
+
+el.innerHTML =
+lang === "en"
+? el.dataset.en
+: el.dataset.cz;
+
+});
+
+localStorage.setItem("lang", lang);
+
+}
+
+const savedLang = localStorage.getItem("lang");
+
+if(savedLang){
+setLang(savedLang);
 }
 
 loadServer();
 setInterval(loadServer, 30000);
+
 </script>
 
 </body>
