@@ -219,6 +219,7 @@ h1 span{
 
 .row span:last-child{
   font-weight:800;
+  text-align:right;
 }
 
 .section{
@@ -293,6 +294,27 @@ tr:hover{
   background:rgba(255,255,255,.03);
 }
 
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:18px;
+}
+
+.gallery img{
+  width:100%;
+  height:240px;
+  object-fit:cover;
+  border-radius:20px;
+  border:1px solid rgba(255,255,255,.08);
+  transition:.25s;
+  background:#111;
+}
+
+.gallery img:hover{
+  transform:scale(1.02);
+  border-color:rgba(255,255,255,.18);
+}
+
 .footer{
   text-align:center;
   padding:50px 24px;
@@ -362,7 +384,7 @@ h1{
     <div class="links">
       <a href="#restart">Restart</a>
       <a href="#changes">Změny</a>
-      <a href="#rules">Pravidla</a>
+      <a href="#gallery">Galerie</a>
       <a href="#support">Podpora</a>
       <a href="https://discord.gg/jJxbZQG5sC" target="_blank">Discord</a>
     </div>
@@ -377,7 +399,7 @@ h1{
 <div>
 
 <div class="tag">
-🐺 Semi-Vanilla / Beginner Friendly
+⚔️ No Pay2Win • Semi-Vanilla • Survival Focused
 </div>
 
 <h1>
@@ -401,7 +423,7 @@ href="steam://connect/185.180.2.17:27744">
 <a class="btn btn-secondary"
 href="https://discord.gg/jJxbZQG5sC"
 target="_blank">
-💬 Discord komunita
+🐺 Join the Pack
 </a>
 </div>
 
@@ -444,6 +466,16 @@ ONLINE
 </div>
 
 <div class="row">
+<span>Mapa</span>
+<span>Custom</span>
+</div>
+
+<div class="row">
+<span>Team limit</span>
+<span>Solo / Duo / Trio</span>
+</div>
+
+<div class="row">
 <span>Wipe</span>
 <span>Každých 10 dní</span>
 </div>
@@ -467,12 +499,13 @@ ONLINE
 <section class="section" id="changes">
 
 <h2 class="section-title">
-Pravděpodobné změny
+WhiteWolves Restart změny
 </h2>
 
 <p class="section-sub">
-Na základě diskuse admin týmu a komunity vzniká nový směr serveru WhiteWolves Restart.
-Cílem je vytvořit dlouhodobě hratelný Semi-Vanilla survival server.
+WhiteWolves vstupuje do nové éry Semi-Vanilla survival gameplaye.
+Cílem je vytvořit dlouhodobě hratelný Rust server,
+kde má loot hodnotu, PvP dává smysl a wipe nekončí po prvních hodinách.
 </p>
 
 <div class="table">
@@ -491,12 +524,17 @@ Cílem je vytvořit dlouhodobě hratelný Semi-Vanilla survival server.
 
 <tr>
 <td>Kity</td>
-<td>Omezení OP kitů • reward kity za odehraný čas</td>
+<td>Omezení OP kitů • žádné Pay2Win combat výhody</td>
 </tr>
 
 <tr>
 <td>Gather</td>
-<td>2x pouze wood / stone / metal</td>
+<td>2x pouze základní resource • wood / stone / metal</td>
+</tr>
+
+<tr>
+<td>Sulfur</td>
+<td>Vanilla sulfur pro férovější raiding</td>
 </tr>
 
 <tr>
@@ -506,17 +544,17 @@ Cílem je vytvořit dlouhodobě hratelný Semi-Vanilla survival server.
 
 <tr>
 <td>Raid systém</td>
-<td>Zrušení raid limitu</td>
+<td>Vyváženější raiding a větší důraz na survival progression</td>
 </tr>
 
 <tr>
 <td>Eventy</td>
-<td>Ponechání Airfield eventu jako hlavního PvP eventu</td>
+<td>Airfield Event zůstává jako hlavní PvP event</td>
 </tr>
 
 <tr>
 <td>Zrušené eventy</td>
-<td>Jet • Balloon • Raid Base</td>
+<td>Jet • Balloon • Raid Bases • Meteor • Armored Train • Mining Event</td>
 </tr>
 
 <tr>
@@ -547,28 +585,64 @@ Cílem je vytvořit dlouhodobě hratelný Semi-Vanilla survival server.
 
 <section class="section">
 
+<h2 class="section-title">
+Proč WhiteWolves?
+</h2>
+
+<p class="section-sub">
+WhiteWolves není další přepálený modded loot server.
+Chceme vytvořit Rust prostředí, kde se vyplatí hrát celý wipe,
+kde má každý fight váhu a kde komunita znamená víc než OP pluginy.
+</p>
+
 <div class="grid">
 
 <div class="feature">
 <h3>⚔️ Více survivalu</h3>
 <p>
 Méně instant progressu a více důvodu zůstávat aktivní celý wipe.
+Loot má mít hodnotu, ne padat hráčům do inventáře jako déšť plechovek.
 </p>
 </div>
 
 <div class="feature">
 <h3>🔥 PvP kolem monumentů</h3>
 <p>
-Scrap a důležité resource zůstávají vanilla pro větší pohyb hráčů po mapě.
+Scrap a důležité resource zůstávají vanilla pro větší pohyb hráčů po mapě
+a smysluplnější souboje.
 </p>
 </div>
 
 <div class="feature">
 <h3>🤝 Beginner Friendly</h3>
 <p>
-Server zaměřený na férovou hru a dlouhodobou komunitu.
+Server zaměřený na férovou hru, aktivní dohled admin týmu
+a dlouhodobou komunitu.
 </p>
 </div>
+
+</div>
+
+</section>
+
+<section class="section" id="gallery">
+
+<h2 class="section-title">
+📸 WhiteWolves Gallery
+</h2>
+
+<p class="section-sub">
+Atmosféra serveru, monument PvP, survival gameplay a custom mapa.
+Žádný instant loot simulator. Jen Rust.
+</p>
+
+<div class="gallery">
+
+<img src="screenshot1.jpg" alt="WhiteWolves Screenshot 1">
+<img src="screenshot2.jpg" alt="WhiteWolves Screenshot 2">
+<img src="screenshot3.jpg" alt="WhiteWolves Screenshot 3">
+<img src="screenshot4.jpg" alt="WhiteWolves Screenshot 4">
+<img src="screenshot5.jpg" alt="WhiteWolves Screenshot 5">
 
 </div>
 
@@ -579,13 +653,14 @@ Server zaměřený na férovou hru a dlouhodobou komunitu.
 <div class="cta">
 
 <h2 class="section-title">
-🎁 Podpora serveru
+🎁 Support WhiteWolves
 </h2>
 
 <p class="section-sub"
 style="margin:0 auto 30px;">
-WhiteWolves funguje díky komunitě.
-Podpora serveru je dobrovolná a nezajišťuje žádné pay-to-win výhody.
+Podpora serveru je dobrovolná a slouží na provoz,
+hosting, vývoj a další zlepšování projektu.
+Nezajišťuje žádné Pay2Win výhody.
 </p>
 
 <div class="buttons"
@@ -594,7 +669,7 @@ style="justify-content:center;">
 <a class="btn btn-primary"
 href="https://discord.gg/jJxbZQG5sC"
 target="_blank">
-💰 Sponzorství serveru
+💰 Podpořit server
 </a>
 
 <a class="btn btn-secondary"
@@ -645,7 +720,7 @@ online === "online"
 }catch(e){
 
 players.textContent = "N/A";
-status.textContent = "Offline";
+status.textContent = "Low pop survival experience";
 
 }
 
