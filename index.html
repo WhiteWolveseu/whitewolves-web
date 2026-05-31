@@ -6,7 +6,7 @@
 
 <title>WhiteWolves.eu Restart | Semi-Vanilla Rust Server</title>
 
-<meta name="description" content="WhiteWolves.eu Restart - EU/CZ Semi-Vanilla Rust server. Více PvP, survival atmosféra, vanilla scrap, 2x základní těžba a férový gameplay bez Pay2Win.">
+<meta name="description" content="WhiteWolves.eu Restart - EU/CZ Semi-Vanilla Rust server. VĂ­ce PvP, survival atmosfĂ©ra, vanilla scrap, 2x zĂˇkladnĂ­ tÄ›Ĺľba a fĂ©rovĂ˝ gameplay bez Pay2Win.">
 
 <style>
 
@@ -377,6 +377,126 @@ h1 span{
 
 }
 
+
+.contest-hero{
+  background:
+    radial-gradient(circle at top left, rgba(214,43,43,.22), transparent 34%),
+    radial-gradient(circle at top right, rgba(255,209,102,.18), transparent 32%),
+    rgba(10,10,10,.86);
+  border:1px solid var(--border);
+  border-radius:28px;
+  padding:28px;
+  overflow:hidden;
+  box-shadow:0 18px 60px rgba(0,0,0,.42);
+}
+
+.contest-banner{
+  width:100%;
+  display:block;
+  border-radius:22px;
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow:0 0 40px rgba(255,209,102,.12);
+  margin-bottom:26px;
+}
+
+.contest-layout{
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:18px;
+}
+
+.contest-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 16px;
+  border-radius:999px;
+  background:rgba(214,43,43,.16);
+  border:1px solid rgba(255,77,77,.28);
+  color:#fff;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+  margin-bottom:16px;
+}
+
+.contest-title{
+  font-size:clamp(34px,5vw,64px);
+  line-height:.95;
+  margin:0 0 18px;
+  text-transform:uppercase;
+}
+
+.contest-title span{
+  color:var(--gold);
+}
+
+.contest-info{
+  display:grid;
+  gap:12px;
+}
+
+.contest-info .row{
+  margin-bottom:0;
+}
+
+.prize-box{
+  background:linear-gradient(135deg, rgba(255,209,102,.14), rgba(214,43,43,.12));
+  border:1px solid rgba(255,209,102,.25);
+  border-radius:20px;
+  padding:24px;
+}
+
+.prize-box h3{
+  margin:0 0 12px;
+  font-size:28px;
+  text-transform:uppercase;
+}
+
+.prize-name{
+  color:var(--gold);
+  font-weight:900;
+  font-size:32px;
+  text-transform:uppercase;
+}
+
+.rules-list{
+  margin:16px 0 0;
+  padding-left:22px;
+  color:var(--muted);
+  line-height:1.9;
+}
+
+.rules-list strong{
+  color:white;
+}
+
+.hunt-warning{
+  margin-top:18px;
+  padding:18px;
+  border-radius:18px;
+  background:rgba(214,43,43,.14);
+  border:1px solid rgba(255,77,77,.24);
+  color:#ffdede;
+  font-weight:800;
+}
+
+@media(max-width:980px){
+
+.contest-layout{
+  grid-template-columns:1fr;
+}
+
+.contest-hero{
+  padding:18px;
+}
+
+.prize-name{
+  font-size:26px;
+}
+
+}
+
 </style>
 </head>
 
@@ -386,8 +506,8 @@ h1 span{
   <div class="nav">
     <div class="nav-left">
       <div class="lang-switch">
-        <button onclick="setLang('cz')">🇨🇿</button>
-        <button onclick="setLang('en')">🇬🇧</button>
+        <button onclick="setLang('cz')">đź‡¨đź‡ż</button>
+        <button onclick="setLang('en')">đź‡¬đź‡§</button>
       </div>
 
       <div class="logo-wrap">
@@ -401,8 +521,9 @@ h1 span{
 
     <div class="links">
       <a href="#restart">Restart</a>
+      <a href="#contest">SoutÄ›Ĺľ</a>
       <a href="#style">Styl serveru</a>
-      <a href="#removed">Odebráno</a>
+      <a href="#removed">OdebrĂˇno</a>
       <a href="#events">Eventy</a>
       <a href="#support">Podpora</a>
       <a href="https://discord.gg/jJxbZQG5sC" target="_blank">Discord</a>
@@ -414,9 +535,9 @@ h1 span{
   <div class="hero-wrap">
     <div>
       <div class="tag"
-      data-cz="🐺 WhiteWolves Restart • Semi-Vanilla • No Pay2Win"
-      data-en="🐺 WhiteWolves Restart • Semi-Vanilla • No Pay2Win">
-        🐺 WhiteWolves Restart • Semi-Vanilla • No Pay2Win
+      data-cz="đźş WhiteWolves Restart â€˘ Semi-Vanilla â€˘ No Pay2Win"
+      data-en="đźş WhiteWolves Restart â€˘ Semi-Vanilla â€˘ No Pay2Win">
+        đźş WhiteWolves Restart â€˘ Semi-Vanilla â€˘ No Pay2Win
       </div>
 
       <h1>
@@ -425,18 +546,18 @@ h1 span{
       </h1>
 
       <p
-      data-cz="WhiteWolves.eu vstupuje do nové éry. Vracíme server blíže ke skutečnému Rust survival gameplayi: více PvP, větší důraz na progression, méně pluginů, méně Pay2Win prvků a delší hratelnost wipeu."
+      data-cz="WhiteWolves.eu vstupuje do novĂ© Ă©ry. VracĂ­me server blĂ­Ĺľe ke skuteÄŤnĂ©mu Rust survival gameplayi: vĂ­ce PvP, vÄ›tĹˇĂ­ dĹŻraz na progression, mĂ©nÄ› pluginĹŻ, mĂ©nÄ› Pay2Win prvkĹŻ a delĹˇĂ­ hratelnost wipeu."
       data-en="WhiteWolves.eu enters a new era. We are moving the server closer to real Rust survival gameplay: more PvP, stronger progression, fewer plugins, fewer Pay2Win elements and longer wipe longevity.">
-        WhiteWolves.eu vstupuje do nové éry. Vracíme server blíže ke skutečnému Rust survival gameplayi: více PvP, větší důraz na progression, méně pluginů, méně Pay2Win prvků a delší hratelnost wipeu.
+        WhiteWolves.eu vstupuje do novĂ© Ă©ry. VracĂ­me server blĂ­Ĺľe ke skuteÄŤnĂ©mu Rust survival gameplayi: vĂ­ce PvP, vÄ›tĹˇĂ­ dĹŻraz na progression, mĂ©nÄ› pluginĹŻ, mĂ©nÄ› Pay2Win prvkĹŻ a delĹˇĂ­ hratelnost wipeu.
       </p>
 
       <div class="buttons">
         <a class="btn btn-primary" href="steam://connect/185.180.2.17:27744">
-          🎮 Připojit na server
+          đźŽ® PĹ™ipojit na server
         </a>
 
         <a class="btn btn-secondary" href="https://discord.gg/jJxbZQG5sC" target="_blank">
-          🐺 Discord komunita
+          đźş Discord komunita
         </a>
       </div>
     </div>
@@ -471,13 +592,498 @@ h1 span{
 
       <div class="row">
         <span>Gather</span>
-        <span>2x základní těžba</span>
+        <span>2x zĂˇkladnĂ­ tÄ›Ĺľba</span>
       </div>
 
       <div class="row">
         <span>Scrap</span>
         <span>Vanilla</span>
       </div>
+
+      <div class="row">
+        <span>Mapa</span>
+        <span>Custom mapa</span>
+      </div>
+
+      <div class="row">
+        <span>Team limit</span>
+        <span>Solo / Duo / Trio</span>
+      </div>
+
+      <div class="row">
+        <span>Wipe</span>
+        <span>kaĹľdĂ˝ch 14 dnĂ­</span>
+      </div>
+
+      <div class="row">
+        <span>AktuĂˇlnĂ­ seed</span>
+        <span>1730978409</span>
+      </div>
+
+      <div class="row">
+        <span>Velikost mapy</span>
+        <span>3500</span>
+      </div>
+
+      <div class="row">
+        <span>Next Wipe</span>
+        <span>Force Wipe</span>
+      </div>
+
+      <div class="row">
+        <span>Players</span>
+        <span id="players">Loading...</span>
+      </div>
+
+      <div class="row">
+        <span>Status</span>
+        <span id="status">Checking...</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contest">
+  <div class="contest-hero">
+    <!-- NahraÄŹ src adresou na obrĂˇzek z GitHubu, ideĂˇlnÄ› raw odkazem. -->
+    <img class="contest-banner" src="soutez-weapon-barrel-banner.png" alt="WhiteWolves.eu soutÄ›Ĺľ o Weapon Barrel">
+
+    <div class="contest-layout">
+      <div>
+        <div class="contest-badge">đźŹ† WhiteWolves.eu soutÄ›Ĺľ</div>
+
+        <h2 class="contest-title">
+          SoutÄ›Ĺľ o <span>Weapon Barrel</span>
+        </h2>
+
+        <p class="section-sub" style="margin-bottom:0;">
+          Po Force Wipu startuje lov na hrĂˇÄŤe <strong>Ragnar - Makrela</strong>. VyhrĂˇvĂˇ ten, kdo ho bÄ›hem soutÄ›Ĺľe legitimnÄ› zabije nejvĂ­ckrĂˇt. Ĺ˝ĂˇdnĂ© domluvenĂ© farmenĂ­, ĹľĂˇdnĂ© vĂ˝mluvy, jen ÄŤistĂ˝ Rust lov.
+        </p>
+
+        <div class="hunt-warning">
+          CĂ­l soutÄ›Ĺľe: Ragnar - Makrela. Jakmile naskoÄŤĂ­ na server, zaÄŤĂ­nĂˇ hon.
+        </div>
+      </div>
+
+      <div class="prize-box">
+        <h3>đźŽ OdmÄ›na</h3>
+        <div class="prize-name">Weapon Barrel</div>
+
+        <div class="contest-info" style="margin-top:20px;">
+          <div class="row">
+            <span>TrvĂˇnĂ­</span>
+            <span>4. 6. - 18. 6. 2026</span>
+          </div>
+
+          <div class="row">
+            <span>Start</span>
+            <span>Po Force Wipu</span>
+          </div>
+
+          <div class="row">
+            <span>Typ wipe</span>
+            <span>Server BP WIPE</span>
+          </div>
+
+          <div class="row">
+            <span>VĂ˝herce</span>
+            <span>NejvĂ­ce legitimnĂ­ch killĹŻ</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid" style="margin-top:22px;">
+      <div class="feature gold">
+        <h3>âš”ď¸Ź Jak vyhrĂˇt</h3>
+        <p>Zabij hrĂˇÄŤe <strong>Ragnar - Makrela</strong> bÄ›hem soutÄ›Ĺľe nejvĂ­ckrĂˇt. KaĹľdĂ˝ platnĂ˝ kill musĂ­ bĂ˝t zaznamenanĂ˝ serverem.</p>
+      </div>
+
+      <div class="feature good">
+        <h3>âś… Co se poÄŤĂ­tĂˇ</h3>
+        <ul>
+          <li>LegitimnĂ­ PvP kill bÄ›Ĺľnou hernĂ­ cestou</li>
+          <li>Kill pĹ™i roamu, raidu, counter raidu nebo bÄ›ĹľnĂ©m hranĂ­</li>
+          <li>Kill bez domluvy a bez manipulace vĂ˝sledkĹŻ</li>
+        </ul>
+      </div>
+
+      <div class="feature notice">
+        <h3>âťŚ Co je zakĂˇzanĂ©</h3>
+        <ul>
+          <li>DomluvenĂ© farmenĂ­ killĹŻ</li>
+          <li>ZneuĹľitĂ­ alt ĂşÄŤtĹŻ nebo obchĂˇzenĂ­ pravidel</li>
+          <li>JakĂˇkoliv manipulace vĂ˝sledkĹŻ soutÄ›Ĺľe</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cta" style="margin-top:22px;">
+      <h2 class="section-title">Ĺ˝ĂˇdnĂ© slitovĂˇnĂ­. Ĺ˝ĂˇdnĂ© vĂ˝mluvy.</h2>
+      <p class="section-sub" style="margin:0 auto 30px;">
+        Administrace si vyhrazuje prĂˇvo zkontrolovat logy serveru a v pĹ™Ă­padÄ› podezĹ™enĂ­ kill neuznat nebo hrĂˇÄŤe diskvalifikovat. RozhodnutĂ­ administrace je koneÄŤnĂ©.
+      </p>
+
+      <div class="buttons" style="justify-content:center;">
+        <a class="btn btn-primary" href="steam://connect/185.180.2.17:27744">
+          đźŽŻ PĹ™ipojit se do lovu
+        </a>
+
+        <a class="btn btn-secondary" href="https://discord.gg/jJxbZQG5sC" target="_blank">
+          đźş VĂ­ce na Discordu
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="style">
+  <h2 class="section-title"
+  data-cz="âś… NovĂ˝ styl serveru"
+  data-en="âś… New server style">
+    âś… NovĂ˝ styl serveru
+  </h2>
+
+  <p class="section-sub"
+  data-cz="CĂ­lem restartu je server, kterĂ˝ hrĂˇÄŤe neomrzĂ­ po pĂˇr hodinĂˇch. Loot mĂˇ mĂ­t hodnotu, PvP mĂˇ dĂˇvat smysl a survival s progression budou znovu dĹŻleĹľitĂ©."
+  data-en="The goal of the restart is a server that does not become boring after a few hours. Loot should matter, PvP should make sense and survival with progression should be important again.">
+    CĂ­lem restartu je server, kterĂ˝ hrĂˇÄŤe neomrzĂ­ po pĂˇr hodinĂˇch. Loot mĂˇ mĂ­t hodnotu, PvP mĂˇ dĂˇvat smysl a survival s progression budou znovu dĹŻleĹľitĂ©.
+  </p>
+
+  <div class="grid">
+    <div class="feature good">
+      <h3>đźź˘ Semi-Vanilla gameplay</h3>
+      <p>MĂ©nÄ› zbyteÄŤnĂ˝ch Ăşprav, vĂ­ce skuteÄŤnĂ©ho Rust survival zĂˇĹľitku a fĂ©rovÄ›jĹˇĂ­ hra pro vĹˇechny hrĂˇÄŤe.</p>
+    </div>
+
+    <div class="feature good">
+      <h3>âš”ď¸Ź VĂ­ce PvP</h3>
+      <p>VÄ›tĹˇĂ­ dĹŻraz na monument PvP, reĂˇlnĂ© fighty mezi hrĂˇÄŤi a pomalejĹˇĂ­ progres mĂ­sto instant loot simulatoru.</p>
+    </div>
+
+    <div class="feature good">
+      <h3>đź§± HodnotnÄ›jĹˇĂ­ progression</h3>
+      <p>Vanilla scrap, 2x pouze zĂˇkladnĂ­ tÄ›Ĺľba, delĹˇĂ­ hratelnost wipeu a vÄ›tĹˇĂ­ dĹŻraz na postup hrou.</p>
+    </div>
+
+    <div class="feature good">
+      <h3>đź—şď¸Ź Custom mapa</h3>
+      <p>Server bÄ›ĹľĂ­ na custom mapÄ› s velikostĂ­ 3500 a aktuĂˇlnĂ­m seedem 1730978409.</p>
+    </div>
+
+    <div class="feature good">
+      <h3>đź‘Ą Solo / Duo / Trio</h3>
+      <p>Team limit je nastavenĂ˝ na Solo, Duo a Trio, aby byl gameplay fĂ©rovÄ›jĹˇĂ­ a pĹ™ehlednÄ›jĹˇĂ­.</p>
+    </div>
+
+    <div class="feature good">
+      <h3>đź“… Bi-weekly wipe</h3>
+      <p>Wipe probĂ­hĂˇ kaĹľdĂ˝ch 14 dnĂ­. DalĹˇĂ­ hlavnĂ­ wipe je plĂˇnovanĂ˝ na Force Wipe.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="removed">
+  <h2 class="section-title">
+    âťŚ OdebranĂ© systĂ©my
+  </h2>
+
+  <p class="section-sub">
+    WhiteWolves.eu se zbavuje pĹ™ehnanĂ˝ch vĂ˝hod a systĂ©mĹŻ, kterĂ© naruĹˇovaly fĂ©rovost nebo zbyteÄŤnÄ› zahlcovaly server.
+  </p>
+
+  <div class="grid-2">
+    <div class="feature notice">
+      <h3>đź”» OdebranĂ© vĂ˝hody a systĂ©my</h3>
+      <ul>
+        <li>OP VIP vĂ˝hody</li>
+        <li>ELITE combat kity</li>
+        <li>Police systĂ©m a police vozidla</li>
+        <li>PĹ™ehnanĂ© Pay2Win prvky</li>
+        <li>ZbyteÄŤnĂ˝ event spam</li>
+      </ul>
+    </div>
+
+    <div class="feature notice">
+      <h3>đź”Ą OdebranĂ© eventy</h3>
+      <ul>
+        <li>Jet Event</li>
+        <li>Balloon Event</li>
+        <li>Raid Bases</li>
+        <li>Meteor Event</li>
+        <li>Armored Train</li>
+        <li>Mining Event</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="events">
+  <h2 class="section-title">
+    âš”ď¸Ź Airfield Event
+  </h2>
+
+  <p class="section-sub">
+    Airfield Event zĹŻstĂˇvĂˇ hlavnĂ­m PvP eventem serveru. CĂ­lem je vytvoĹ™it vĂ­ce reĂˇlnĂ˝ch fightĹŻ mezi hrĂˇÄŤi mĂ­sto rychlĂ©ho lootovĂˇnĂ­ bÄ›hem prvnĂ­ch hodin wipe.
+  </p>
+
+  <div class="grid">
+    <div class="feature gold">
+      <h3>âš”ď¸Ź HlavnĂ­ PvP event</h3>
+      <p>Airfield zĹŻstĂˇvĂˇ dĹŻleĹľitĂ˝m bodem pro stĹ™ety mezi hrĂˇÄŤi a tĂ˝movĂ© souboje.</p>
+    </div>
+
+    <div class="feature gold">
+      <h3>đźŽŻ SmysluplnĂ© fighty</h3>
+      <p>Event mĂˇ podporovat napÄ›tĂ­, taktiku a opravdovĂ˝ boj o hodnotnĂ˝ loot.</p>
+    </div>
+
+    <div class="feature gold">
+      <h3>đź”Ą DelĹˇĂ­ hratelnost</h3>
+      <p>MĂ©nÄ› instant odmÄ›n, vĂ­ce prostoru pro progression, pĹ™Ă­pravu a survival gameplay.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="shop">
+  <h2 class="section-title">
+    đź›’ Reward Shop
+  </h2>
+
+  <p class="section-sub">
+    Na serveru funguje Reward Shop. OtevĹ™eĹˇ ho pĹ™Ă­kazem <strong>/s</strong>. Za tÄ›Ĺľbu zĂ­skĂˇvĂˇĹˇ RP mÄ›nu, kterou mĹŻĹľeĹˇ vyuĹľĂ­t na nĂˇkup itemĹŻ, resources a dalĹˇĂ­ch vÄ›cĂ­.
+  </p>
+
+  <div class="grid">
+    <div class="feature">
+      <h3>â›Źď¸Ź ZĂ­skĂˇvĂˇnĂ­ RP</h3>
+      <p>RP mÄ›nu zĂ­skĂˇvĂˇĹˇ za tÄ›Ĺľbu a aktivitu na serveru.</p>
+    </div>
+
+    <div class="feature">
+      <h3>đź’Ž VyuĹľitĂ­ RP</h3>
+      <p>NasbĂ­ranĂ© RP mĹŻĹľeĹˇ utratit v Reward Shopu za uĹľiteÄŤnĂ© odmÄ›ny.</p>
+    </div>
+
+    <div class="feature">
+      <h3>đź“¦ PĹ™Ă­kaz /s</h3>
+      <p>Reward Shop otevĹ™eĹˇ jednoduĹˇe pĹ™Ă­kazem <strong>/s</strong> pĹ™Ă­mo ve hĹ™e.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="info-panel">
+  <h2 class="section-title">
+    â„ąď¸Ź NovĂ˝ informaÄŤnĂ­ panel
+  </h2>
+
+  <p class="section-sub">
+    PĹ™idali jsme novĂ˝ informaÄŤnĂ­ panel, dĂ­ky kterĂ©mu majĂ­ hrĂˇÄŤi dĹŻleĹľitĂ© Ăşdaje neustĂˇle na oÄŤĂ­ch pĹ™Ă­mo ve hĹ™e.
+  </p>
+
+  <div class="grid">
+    <div class="feature good">
+      <h3>âś… PoÄŤet hrĂˇÄŤĹŻ online</h3>
+      <p>OkamĹľitÄ› vidĂ­Ĺˇ, kolik hrĂˇÄŤĹŻ je prĂˇvÄ› pĹ™ipojeno na serveru.</p>
+    </div>
+
+    <div class="feature good">
+      <h3>âś… ÄŚas do wipe</h3>
+      <p>Sleduj pĹ™esnĂ˝ odpoÄŤet do dalĹˇĂ­ho wipe a plĂˇnuj svĹŻj postup efektivnÄ›ji.</p>
+    </div>
+
+    <div class="feature notice">
+      <h3>đźź˘ OdebrĂˇn pĹ™Ă­kaz /players</h3>
+      <p>JmenovitĂ˝ seznam online hrĂˇÄŤĹŻ uĹľ nenĂ­ dostupnĂ˝. Chceme podpoĹ™it fĂ©rovÄ›jĹˇĂ­ hru, omezit cĂ­lenĂ© sledovĂˇnĂ­ hrĂˇÄŤĹŻ a zachovat vĂ­ce anonymity.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="team">
+  <h2 class="section-title">
+    đź‘‘ NovĂ© vedenĂ­ serveru
+  </h2>
+
+  <p class="section-sub">
+    WhiteWolves.eu mĂˇ novĂ© spolumajitele. CĂ­lem je posunout server na vyĹˇĹˇĂ­ ĂşroveĹ, pĹ™inĂ©st lepĹˇĂ­ stabilitu, aktivnÄ›jĹˇĂ­ support a lepĹˇĂ­ Rust zĂˇĹľitek pro vĹˇechny hrĂˇÄŤe.
+  </p>
+
+  <div class="grid">
+    <div class="feature">
+      <h3>đźş Spolumajitel</h3>
+      <p>Nile Emperor</p>
+    </div>
+
+    <div class="feature">
+      <h3>â ď¸Ź Spolumajitel</h3>
+      <p>AK_On_Roof</p>
+    </div>
+
+    <div class="feature">
+      <h3>đź›ˇď¸Ź AdministrĂˇtoĹ™i</h3>
+      <p>Duracel<br>Craftmine98</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="donate">
+  <h2 class="section-title">
+    đź’Ž Donate systĂ©m
+  </h2>
+
+  <p class="section-sub">
+    Donate novÄ› slouĹľĂ­ pouze jako dobrovolnĂˇ podpora serveru. Nechceme OP itemy, nespravedlivĂ© vĂ˝hody ani Pay2Win gameplay.
+  </p>
+
+  <div class="grid">
+    <div class="feature notice">
+      <h3>âťŚ Ĺ˝ĂˇdnĂ© OP itemy</h3>
+      <p>Donate nesmĂ­ rozhodovat fighty ani kazit progression ostatnĂ­m hrĂˇÄŤĹŻm.</p>
+    </div>
+
+    <div class="feature notice">
+      <h3>âťŚ Ĺ˝ĂˇdnĂ© nespravedlivĂ© vĂ˝hody</h3>
+      <p>Server mĂˇ bĂ˝t fĂ©rovĂ˝ pro novĂ© i dlouhodobĂ© hrĂˇÄŤe.</p>
+    </div>
+
+    <div class="feature good">
+      <h3>âś… DobrovolnĂˇ podpora</h3>
+      <p>Podpora pomĂˇhĂˇ udrĹľet server online a rozvĂ­jet projekt WhiteWolves.eu.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="feedback">
+  <h2 class="section-title">
+    đź’¬ Rozhodni, co bude po Force Wipe
+  </h2>
+
+  <p class="section-sub">
+    MĂˇĹˇ nĂˇpad, kterĂ˝ by zlepĹˇil WhiteWolves.eu? Navrhni zmÄ›ny, novĂ© funkce nebo Ăşpravy serveru. Hlasuj o nĂˇvrzĂ­ch ostatnĂ­ch hrĂˇÄŤĹŻ a pomoz utvĂˇĹ™et budoucnost serveru.
+  </p>
+
+  <div class="cta">
+    <h2 class="section-title">
+      TvĹŻj nĂˇpad. TvĹŻj server. Tvoje budoucnost.
+    </h2>
+
+    <p class="section-sub" style="margin:0 auto 30px;">
+      VĹˇechny nĂˇvrhy piĹˇte na Discordu do kanĂˇlu <strong>đź”¨â”nĂˇvrhy-na-zlepĹˇenĂ­</strong>. NejlepĹˇĂ­ a nejĹľĂˇdanÄ›jĹˇĂ­ nĂˇvrhy majĂ­ Ĺˇanci dostat se na server uĹľ po Force Wipe.
+    </p>
+
+    <div class="buttons" style="justify-content:center;">
+      <a class="btn btn-primary" href="https://discord.gg/jJxbZQG5sC" target="_blank">
+        đź’¬ Poslat nĂˇvrh na Discord
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="gallery">
+  <h2 class="section-title">
+    đź“¸ Galerie
+  </h2>
+
+  <div class="gallery">
+    <img src="screenshot1.jpg" alt="WhiteWolves screenshot 1">
+    <img src="screenshot2.jpg" alt="WhiteWolves screenshot 2">
+    <img src="screenshot3.jpg" alt="WhiteWolves screenshot 3">
+    <img src="screenshot4.jpg" alt="WhiteWolves screenshot 4">
+    <img src="screenshot5.jpg" alt="WhiteWolves screenshot 5">
+  </div>
+</section>
+
+<section class="section" id="support">
+  <div class="cta">
+    <h2 class="section-title">
+      đźŽ PodpoĹ™ WhiteWolves.eu
+    </h2>
+
+    <p class="section-sub" style="margin:0 auto 30px;">
+      Podpora pomĂˇhĂˇ udrĹľet server online, zlepĹˇovat komunitu a rozvĂ­jet fĂ©rovĂ˝ Rust projekt bez Pay2Win prvkĹŻ.
+    </p>
+
+    <div class="buttons" style="justify-content:center;">
+      <a class="btn btn-primary" href="https://discord.gg/jJxbZQG5sC" target="_blank">
+        đź’Ž PodpoĹ™it server
+      </a>
+
+      <a class="btn btn-secondary" href="https://discord.gg/jJxbZQG5sC" target="_blank">
+        đź’¬ Discord
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  Â© 2026 EU/CZ WhiteWolves.eu Restart | Semi-Vanilla Rust Server
+</footer>
+
+<script>
+
+const SERVER_ID = "32370252";
+
+async function loadServer(){
+
+  const players = document.getElementById("players");
+  const status = document.getElementById("status");
+
+  try{
+
+    const res = await fetch(
+      `https://api.battlemetrics.com/servers/${SERVER_ID}`
+    );
+
+    const data = await res.json();
+
+    const online = data.data.attributes.status;
+    const current = data.data.attributes.players;
+    const max = data.data.attributes.maxPlayers;
+
+    players.textContent = `${current} / ${max}`;
+
+    status.textContent =
+      online === "online"
+      ? "đźź˘ Online"
+      : "đź”´ Offline";
+
+  }catch(e){
+
+    players.textContent = "N/A";
+    status.textContent = "Offline";
+
+  }
+
+}
+
+function setLang(lang){
+
+  document.querySelectorAll("[data-cz]").forEach(el => {
+
+    el.innerHTML =
+      lang === "en"
+      ? el.dataset.en
+      : el.dataset.cz;
+
+  });
+
+  localStorage.setItem("lang", lang);
+
+}
+
+const savedLang = localStorage.getItem("lang");
+
+if(savedLang){
+  setLang(savedLang);
+}
+
+loadServer();
+setInterval(loadServer, 30000);
+
+</script>
+
+</body>
+</html>
 
       <div class="row">
         <span>Mapa</span>
