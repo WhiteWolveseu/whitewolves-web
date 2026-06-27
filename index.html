@@ -3,181 +3,428 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>WhiteWolves.eu | Server ukončen</title>
+<meta name="description" content="WhiteWolves.eu Rust server byl ukončen. Děkujeme všem hráčům, adminům a celé komunitě za společné wipe, raidy, PvP i vzpomínky.">
 
 <style>
-
 :root{
+  --bg:#07090d;
+  --panel:rgba(10,10,10,.84);
+  --panel2:rgba(255,255,255,.05);
+  --border:rgba(255,255,255,.10);
+  --text:#f4f4f4;
+  --muted:#aab2bd;
   --red:#d62b2b;
   --red2:#ff4d4d;
-  --text:#ffffff;
+  --gold:#ffd166;
+  --green:#3eff79;
 }
 
-*{
-  box-sizing:border-box;
-}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
 
 body{
   margin:0;
-  font-family:Arial, sans-serif;
+  font-family:Arial, Helvetica, sans-serif;
   color:var(--text);
   background:
-    linear-gradient(rgba(0,0,0,.82), rgba(0,0,0,.92)),
+    radial-gradient(circle at top left, rgba(214,43,43,.24), transparent 34%),
+    radial-gradient(circle at top right, rgba(255,209,102,.14), transparent 28%),
+    linear-gradient(rgba(0,0,0,.74), rgba(0,0,0,.96)),
     url("https://wallpapersok.com/images/hd/rust-industrial-site-r97y4a59ri1boo6j.jpg") center/cover fixed;
 }
 
-.wrapper{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:40px;
+a{text-decoration:none;color:inherit}
+
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:50;
+  backdrop-filter:blur(10px);
+  background:rgba(0,0,0,.72);
+  border-bottom:1px solid var(--border);
 }
 
-.card{
-  max-width:1000px;
-  width:100%;
-  background:rgba(10,10,10,.80);
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:30px;
-  padding:60px;
-  text-align:center;
-  backdrop-filter:blur(12px);
+.nav{
+  max-width:1200px;
+  margin:auto;
+  padding:16px 22px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+}
+
+.logo-wrap{
+  display:flex;
+  align-items:center;
+  gap:14px;
 }
 
 .logo{
-  font-size:58px;
+  width:52px;
+  height:52px;
+  object-fit:contain;
+}
+
+.brand{
+  font-size:22px;
   font-weight:900;
-  margin-bottom:20px;
 }
 
-.logo span{
-  color:var(--red2);
+.brand span{color:var(--red2)}
+
+.links{
+  display:flex;
+  gap:20px;
+  color:#d0d0d0;
+  font-weight:700;
 }
 
-.status{
+.links a:hover{color:white}
+
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+}
+
+.hero-wrap{
+  max-width:1200px;
+  width:100%;
+  margin:auto;
+  padding:90px 24px;
+  display:grid;
+  grid-template-columns:1.08fr .92fr;
+  gap:28px;
+  align-items:center;
+}
+
+.tag{
   display:inline-block;
-  padding:12px 22px;
+  padding:10px 18px;
   border-radius:999px;
-  background:rgba(214,43,43,.18);
-  border:1px solid rgba(255,77,77,.30);
-  margin-bottom:30px;
-  font-weight:bold;
+  background:rgba(255,255,255,.06);
+  border:1px solid var(--border);
+  color:#ddd;
+  margin-bottom:20px;
+  font-size:14px;
+  font-weight:800;
 }
 
 h1{
   margin:0;
-  font-size:70px;
+  font-size:clamp(48px,8vw,104px);
+  line-height:.9;
   text-transform:uppercase;
-  line-height:1;
+  letter-spacing:-.04em;
 }
 
-h1 span{
-  color:var(--red2);
-}
+h1 span{color:var(--red2)}
 
-.text{
-  max-width:850px;
-  margin:40px auto;
-  font-size:21px;
-  color:#d0d0d0;
+.hero p{
+  color:var(--muted);
   line-height:1.8;
+  font-size:20px;
+  max-width:760px;
+  margin:28px 0;
 }
 
-.box{
-  margin-top:40px;
-  padding:30px;
-  border-radius:20px;
-  background:rgba(255,255,255,.04);
+.buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:16px;
+}
+
+.btn{
+  padding:16px 26px;
+  border-radius:14px;
+  font-weight:900;
+  transition:.2s;
+}
+
+.btn-primary{
+  background:linear-gradient(135deg,var(--red),var(--red2));
+  color:white;
+}
+
+.btn-primary:hover{transform:translateY(-2px)}
+
+.btn-secondary{
+  background:rgba(255,255,255,.07);
+  border:1px solid var(--border);
+  color:white;
+}
+
+.btn-secondary:hover{background:rgba(255,255,255,.13)}
+
+.card{
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:26px;
+  padding:28px;
+  backdrop-filter:blur(12px);
+  box-shadow:0 20px 80px rgba(0,0,0,.44);
+}
+
+.status{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+  margin-bottom:22px;
+}
+
+.offline{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 16px;
+  border-radius:999px;
+  background:rgba(214,43,43,.16);
+  border:1px solid rgba(255,77,77,.28);
+  color:#ffdede;
+  font-weight:900;
+}
+
+.dot{
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:var(--red2);
+  box-shadow:0 0 16px var(--red2);
+}
+
+.row{
+  display:flex;
+  justify-content:space-between;
+  gap:16px;
+  padding:16px;
+  border-radius:14px;
+  background:var(--panel2);
   border:1px solid rgba(255,255,255,.06);
+  margin-bottom:12px;
 }
 
-.box h2{
-  margin-top:0;
-  color:#ffb4b4;
+.row span:first-child{color:#c7c7c7}
+.row span:last-child{font-weight:900;text-align:right}
+
+.section{
+  max-width:1200px;
+  margin:auto;
+  padding:90px 24px;
 }
 
-.footer{
-  margin-top:50px;
-  color:#888;
-  font-size:14px;
+.section-title{
+  font-size:clamp(34px,5vw,56px);
+  margin:0 0 14px;
+  text-transform:uppercase;
+  letter-spacing:-.03em;
 }
 
-@media(max-width:800px){
-
-h1{
-  font-size:42px;
-}
-
-.text{
+.section-sub{
+  color:var(--muted);
+  line-height:1.8;
+  max-width:860px;
+  margin:0 0 32px;
   font-size:18px;
 }
 
-.card{
-  padding:30px;
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
 }
 
+.feature{
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:22px;
+  padding:24px;
 }
 
+.feature h3{margin:0 0 12px;font-size:22px}
+.feature p,.feature ul{color:var(--muted);line-height:1.8}
+.feature ul{margin:0;padding-left:20px}
+.good{border-left:4px solid var(--green)}
+.gold{border-left:4px solid var(--gold)}
+.notice{border-left:4px solid var(--red2)}
+
+.quote{
+  background:
+    linear-gradient(135deg, rgba(255,209,102,.12), rgba(214,43,43,.12)),
+    var(--panel);
+  border:1px solid rgba(255,209,102,.22);
+  border-radius:28px;
+  padding:42px;
+  text-align:center;
+}
+
+.quote h2{
+  margin:0 0 18px;
+  font-size:clamp(34px,5vw,62px);
+  text-transform:uppercase;
+}
+
+.quote p{
+  color:#d8d8d8;
+  line-height:1.8;
+  font-size:20px;
+  max-width:900px;
+  margin:0 auto 28px;
+}
+
+.timeline{
+  display:grid;
+  gap:16px;
+}
+
+.time-item{
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:22px;
+}
+
+.time-item strong{color:white;font-size:20px}
+.time-item p{color:var(--muted);line-height:1.7;margin:10px 0 0}
+
+.footer{
+  text-align:center;
+  padding:50px 24px;
+  border-top:1px solid var(--border);
+  color:#888;
+}
+
+@media(max-width:980px){
+  .hero-wrap{grid-template-columns:1fr}
+  .grid{grid-template-columns:1fr}
+  .links{display:none}
+  .status{align-items:flex-start;flex-direction:column}
+}
 </style>
 </head>
 
 <body>
 
-<div class="wrapper">
-
-  <div class="card">
-
-    <div class="logo">
-      White<span>Wolves</span>.eu
+<div class="topbar">
+  <div class="nav">
+    <div class="logo-wrap">
+      <img src="logo.webp" class="logo" alt="WhiteWolves logo">
+      <div class="brand">White<span>Wolves</span>.eu</div>
     </div>
 
-    <div class="status">
-      ⚠ SERVER UKONČEN
+    <div class="links">
+      <a href="#farewell">Rozloučení</a>
+      <a href="#thanks">Poděkování</a>
+      <a href="#memories">Vzpomínky</a>
+      <a href="https://discord.gg/jJxbZQG5sC" target="_blank">Discord</a>
     </div>
-
-    <h1>
-      Konec jedné <span>éry</span>
-    </h1>
-
-    <div class="text">
-      Po dlouhé cestě jsme se rozhodli projekt <strong>WhiteWolves.eu</strong> definitivně ukončit.
-      <br><br>
-      Nebylo to jednoduché rozhodnutí, protože tento server nebyl jen obyčejný Rust server.
-      Byl to kus práce, stovky hodin vývoje, úprav, starostí a především komunita lidí, která kolem něj vznikla.
-      <br><br>
-      Každý wipe, každý raid, každá aliance i každá zrada vytvořily něco, na co budeme dlouho vzpomínat.
-    </div>
-
-    <div class="box">
-      <h2>Děkujeme ❤️</h2>
-
-      Děkujeme každému hráči, který se kdy připojil.<br>
-      Děkujeme všem supporterům, adminům a lidem, kteří věřili projektu.<br><br>
-
-      Bez vás by WhiteWolves nikdy nebyl tím, čím byl.
-    </div>
-
-    <div class="box">
-
-      <h2>Poslední zpráva komunitě</h2>
-
-      Rust nás spojil.<br>
-      Vytvořili jsme místo plné příběhů, rivality a nezapomenutelných momentů.<br><br>
-
-      Server končí.<br>
-      Vzpomínky zůstávají.
-
-    </div>
-
-    <div class="footer">
-      WhiteWolves.eu • 2024 - 2026 🐺
-    </div>
-
   </div>
-
 </div>
+
+<section class="hero" id="farewell">
+  <div class="hero-wrap">
+    <div>
+      <div class="tag">🐺 WhiteWolves.eu • Rust komunita • konec jedné éry</div>
+
+      <h1>
+        Server<br>
+        <span>ukončen</span>
+      </h1>
+
+      <p>
+        WhiteWolves.eu tímto uzavírá svoji Rust kapitolu. Byl to server plný wipeů, raidů,
+        pádů ze střech, nervů u monumentů, nočních counterů a momentů, které zůstávají
+        v paměti komunity. Děkujeme všem, kteří byli součástí smečky.
+      </p>
+
+      <div class="buttons">
+        <a class="btn btn-primary" href="#thanks">🕯️ Poslední rozloučení</a>
+        <a class="btn btn-secondary" href="https://discord.gg/jJxbZQG5sC" target="_blank">🐺 Discord komunita</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="status">
+        <div>
+          <div style="font-size:13px;color:#aaa;text-transform:uppercase;font-weight:800;">Status serveru</div>
+          <div style="font-size:34px;font-weight:900;margin-top:6px;">EU/CZ WhiteWolves.eu</div>
+        </div>
+
+        <div class="offline"><div class="dot"></div> UKONČEN</div>
+      </div>
+
+      <div class="row"><span>Projekt</span><span>WhiteWolves.eu</span></div>
+      <div class="row"><span>Hra</span><span>Rust</span></div>
+      <div class="row"><span>Komunita</span><span>CZ / EU</span></div>
+      <div class="row"><span>Server</span><span>Offline</span></div>
+      <div class="row"><span>Stav</span><span>Konec provozu</span></div>
+      <div class="row"><span>Zůstává</span><span>Vzpomínky a komunita</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="thanks">
+  <div class="quote">
+    <h2>Děkujeme za všechno</h2>
+    <p>
+      Děkujeme každému hráči, který se připojil, stavěl základny, bojoval, raidil,
+      bránil svůj loot, pomáhal nováčkům nebo jen tvořil atmosféru serveru.
+      WhiteWolves.eu nebyl jen IP adresa. Byla to smečka lidí, kteří společně psali
+      malý kus Rust historie.
+    </p>
+    <div class="buttons" style="justify-content:center;">
+      <a class="btn btn-secondary" href="https://discord.gg/jJxbZQG5sC" target="_blank">Zůstat v kontaktu na Discordu</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="memories">
+  <h2 class="section-title">Co po nás zůstává</h2>
+  <p class="section-sub">
+    Servery se vypínají, mapy mizí a bedny despawnují. Ale některé momenty nejdou smazat ani admin příkazem.
+  </p>
+
+  <div class="grid">
+    <div class="feature gold">
+      <h3>⚔️ PvP momenty</h3>
+      <p>Fighty u monumentů, counter raidy, noční akce a situace, kdy rozhodovala jediná rána.</p>
+    </div>
+
+    <div class="feature good">
+      <h3>🏠 Base stories</h3>
+      <p>Základny, bunkry, pasti, compoundy a domovy, které přežily víc než jeden šílený večer.</p>
+    </div>
+
+    <div class="feature notice">
+      <h3>🔥 Raidy a wipe</h3>
+      <p>Výbuchy, sirky, rakety, smích, ticho po raidu a pocit, že Rust umí být krutě krásný.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2 class="section-title">Poslední zápis do logu</h2>
+  <div class="timeline">
+    <div class="time-item">
+      <strong>Server byl ukončen</strong>
+      <p>Provoz WhiteWolves.eu byl ukončen. Děkujeme za podporu, čas, energii a všechny společné wipe.</p>
+    </div>
+    <div class="time-item">
+      <strong>Komunita může pokračovat dál</strong>
+      <p>Discord zůstává místem, kde se mohou hráči potkat, zavzpomínat nebo domluvit další společné hraní.</p>
+    </div>
+    <div class="time-item">
+      <strong>WhiteWolves.eu</strong>
+      <p>Jedna kapitola končí. Smečka se nerozpadá, jen mizí z mapy.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  © 2026 WhiteWolves.eu | Rust server ukončen • Děkujeme celé komunitě 🐺
+</footer>
 
 </body>
 </html>
