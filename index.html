@@ -29,8 +29,8 @@ section.content{padding:95px 0;border-bottom:1px solid var(--line)}.section-head
   <div class="vip-grid">
     <div class="vip-package">
       <div class="vip-badge">WHITEWOLVES / VIP</div><div class="vip-price">499 <span data-vip-key="currency">Kč</span></div><p class="vip-price-note" data-vip-key="oneTime">Jednorázová platba převodem. Bez předplatného.</p>
-      <ul class="vip-benefits"><li><strong>5 000 RP</strong><span data-vip-key="points">Jednorázově na tvůj účet v ServerRewards.</span></li><li><strong data-vip-key="prefix">[VIP] na 30 dní</strong><span data-vip-key="prefixNote">Zlatý prefix v chatu od aktivace.</span></li></ul>
-      <p class="vip-repeat" data-vip-key="repeat">Další nákup připíše dalších 5 000 RP a prodlouží aktivní VIP o 30 dní.</p>
+      <ul class="vip-benefits"><li><strong>5 000 RP</strong><span data-vip-key="points">Jednorázově na tvůj účet v ServerRewards.</span></li><li><strong data-vip-key="prefix">[VIP] na 30 dní</strong><span data-vip-key="prefixNote">Zlatý prefix v chatu od aktivace.</span></li><li><strong data-vip-key="items">1× AK + 600 scrapu</strong><span data-vip-key="itemsNote">Ke každému nákupu. Pokud jsi offline nebo máš plno, předměty počkají. Vyzvednutí ve hře: /vipkit.</span></li></ul>
+      <p class="vip-repeat" data-vip-key="repeat">Další nákup připíše dalších 5 000 RP, přidá 1 AK a 600 scrapu a prodlouží aktivní VIP o 30 dní.</p>
       <div class="vip-steps"><h3 data-vip-key="stepsTitle">Jak nákup probíhá</h3><ol><li data-vip-key="step1">Zadej svoje SteamID64 a vytvoř si QR platbu.</li><li data-vip-key="step2">Pošli 499 Kč a ponech zprávu s celým SteamID.</li><li data-vip-key="step3">Na Discordu pošli administrátorovi SteamID a identifikaci platby.</li><li data-vip-key="step4">Po přijetí a ručním ověření platby připíšeme RP a aktivujeme VIP, i když jsi offline.</li></ol></div>
       <a class="btn vip-gold" href="https://discord.gg/jJxbZQG5sC" target="_blank" rel="noopener noreferrer" data-vip-key="discord">Napsat na Discord ↗</a>
     </div>
@@ -198,7 +198,8 @@ copyButton.addEventListener('click',async()=>{const command='client.connect 185.
       eyebrow:'Podpoř smečku', title:'Tvoje místo mezi VIP.', currency:'Kč',
       oneTime:'Jednorázová platba převodem. Bez předplatného.', points:'Jednorázově na tvůj účet v ServerRewards.',
       prefix:'[VIP] na 30 dní', prefixNote:'Zlatý prefix v chatu od aktivace.',
-      repeat:'Další nákup připíše dalších 5 000 RP a prodlouží aktivní VIP o 30 dní.',
+      items:'1× AK + 600 scrapu', itemsNote:'Ke každému nákupu. Pokud jsi offline nebo máš plno, předměty počkají. Vyzvednutí ve hře: /vipkit.',
+      repeat:'Další nákup připíše dalších 5 000 RP, přidá 1 AK a 600 scrapu a prodlouží aktivní VIP o 30 dní.',
       stepsTitle:'Jak nákup probíhá', step1:'Zadej svoje SteamID64 a vytvoř si QR platbu.',
       step2:'Pošli 499 Kč a ponech zprávu s celým SteamID.',
       step3:'Na Discordu pošli administrátorovi SteamID a identifikaci platby.',
@@ -219,7 +220,8 @@ copyButton.addEventListener('click',async()=>{const command='client.connect 185.
       eyebrow:'Support the pack', title:'Your place among VIPs.', currency:'CZK',
       oneTime:'One-time bank transfer. No subscription.', points:'Credited once to your ServerRewards balance.',
       prefix:'[VIP] for 30 days', prefixNote:'A gold chat prefix starting at activation.',
-      repeat:'Each additional purchase adds another 5,000 RP and extends active VIP by 30 days.',
+      items:'1× AK + 600 scrap', itemsNote:'Included with each purchase. Items wait if you are offline or your inventory is full. Claim in-game with /vipkit.',
+      repeat:'Each additional purchase adds another 5,000 RP, 1 AK and 600 scrap, and extends active VIP by 30 days.',
       stepsTitle:'How to purchase', step1:'Enter your SteamID64 to generate a payment QR.',
       step2:'Transfer 499 CZK and keep your full SteamID in the payment message.',
       step3:'Send your SteamID and payment reference to an admin on Discord.',
@@ -305,4 +307,5 @@ copyButton.addEventListener('click',async()=>{const command='client.connect 185.
 
 </script>
 </body></html>
+
 
